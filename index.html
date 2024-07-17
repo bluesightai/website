@@ -43,6 +43,7 @@
         height: 2px;
         background-color: #999;
         margin: 50px auto;
+        margin-bottom: 10px;
       }
       .section {
         max-width: 800px;
@@ -62,48 +63,122 @@
     <div class="landing">
       <div class="logo">Bluesight</div>
       <div class="links">
+        <a href="#insight">Insight</a><span class="separator">|</span>
         <a href="#platform">Platform</a><span class="separator">|</span>
-        <a href="https://docs.bluesight.ai">Docs</a
-        ><span class="separator">|</span> <a href="#team">Team</a
-        ><span class="separator">|</span>
-        <a href="mailto:szymon@bluesight.ai">Contact Us</a
-        ><span class="separator">|</span>
+        <a target="_blank" href="https://docs.bluesight.ai">Docs</a
+        ><span class="separator">|</span> <a href="#team">Team</a>
+        <span class="separator">|</span>
         <a href="https://discord.gg/NCg9mkz9C7">Discord</a>
       </div>
     </div>
 
     <div class="horizontal-separator"></div>
 
+    <div id="insight" class="section">
+      <h2>Insight</h2>
+      <h3>Problem</h3>
+      Machine learning for satelitte data today is as fragmented as natural
+      language processing was back in 2018. Slightly changing the task
+      (regression vs segmentation) often requires training and debugging models
+      from scratch whereas scaling to new regions means high spend on
+      ground-truth data collection.
+      <h3>Solution</h3>
+      We believe those problems will be solved through productziing geo-spatial
+      foundational models. We are currently offering hosted inference for
+      open-source
+      <a target="_blank" href="https://clay-foundation.github.io/model/"
+        >Clay model</a
+      >
+      together with fine-tuning API for most popular downstream tasks. We are
+      working with geo-spatial developers to intergrate the platform into their
+      workflows as well as end-customers looking to directly get actionable
+      intelligence.
+      <a href="mailto:hello@bluesight.ai"
+        >Get in touch if you have any questions</a
+      >
+    </div>
+
     <div id="platform" class="section">
       <h2>Platform</h2>
+
+      <h3>Developers</h3>
       <p>
-        Bluesight is an AI platform for geospatial data. We're building it to
-        democratize access to Earth observation insights and empower
-        decision-makers with actionable intelligence about our planet.
+        We offer inference for Clay as well as finetuning and hosting for
+        classification and regression tasks. You can read more about it in our
+
+        <a target="_blank" href="https://docs.bluesight.ai">docs</a>. Please
+        <a href="mailto:hello@bluesight.ai">reach out</a> or join
+        <a href="https://discord.gg/NCg9mkz9C7">our discord</a> should encounter
+        any problems or require functionality that is not yet avaialbl.
       </p>
+      <h3>Solutions</h3>
       <p>
-        Our platform leverages state-of-the-art machine learning models,
-        including the Clay foundation model, to analyze satellite imagery and
-        other geospatial data sources. This allows us to provide valuable
-        insights for various applications such as environmental monitoring,
-        urban planning, agriculture, and disaster response.
+        We are happy to offer consulting services on top of our platform
+        directly to customers who do wish to interact with the API direvtly
       </p>
+      Email Szymon directly <a href="mailto:szymon@bluesight.ai">here</a>.
+      <h3>Future plans</h3>
       <p>
-        By combining cutting-edge AI technology with vast amounts of Earth
-        observation data, Bluesight aims to unlock new possibilities for
-        understanding and managing our planet's resources and challenges.
+        We are currently in the listening and learning mode. Over following
+        weeks, we hope to further improve our finetuning / hosting platform.
+        Starting in early September, we will be training our own family of
+        foundational models. We are aiming to keep most of them open-source and
+        provide a simple end-customer interface. Reach out to
+        <a href="mailto:alex@bluesight.ai">Alex</a> if you have a perspective on
+        what the Clay model is currently missing.
       </p>
     </div>
 
     <div id="team" class="section">
       <h2>Team</h2>
-      <p>
-        Our team consists of passionate experts in artificial intelligence,
-        geospatial analysis, and software engineering. We're dedicated to
-        pushing the boundaries of what's possible with AI and Earth observation
-        data.
-      </p>
-      <p>[Team member bios and photos to be added]</p>
+      <div
+        style="display: flex; justify-content: space-around; flex-wrap: wrap"
+      >
+        <a
+          style="text-decoration: none; color: inherit"
+          target="_blank"
+          href="https://www.linkedin.com/in/szymon-zmy%C5%9Blony-99a59775/"
+        >
+          <div style="text-align: center; width: 300px; padding: 10px">
+            <img
+              src="./assets/szymon.png"
+              alt="Szymon"
+              style="width: 150px; height: 150px; border-radius: 50%"
+            />
+            <div style="padding: 10px 0">
+              <b>Szymon</b><br />
+              <span>szymon at bluesight.ai</span>
+            </div>
+            <p style="text-align: left">
+              Founded and led AI agriculture project at Google X for 4 years.
+              Developed and patented spatio-temporal ML forecasting algorithms
+              since his master thesis.
+            </p>
+          </div>
+        </a>
+        <a
+          style="text-decoration: none; color: inherit"
+          target="_blank"
+          href="https://www.linkedin.com/in/smirnov-alexander/"
+        >
+          <div style="text-align: center; width: 300px; padding: 10px">
+            <img
+              src="./assets/alex.jpg"
+              alt="Alex"
+              style="width: 150px; height: 150px; border-radius: 50%"
+            />
+            <div style="padding: 10px 0">
+              <b>Alex</b><br />
+              <span>alex at bluesight.ai</span>
+            </div>
+            <p style="text-align: left">
+              Pre-trained, fine-tuned, aligned and deployed 100B+ foundational
+              language models at Yandex. Wrote and maintained API infrastructure
+              for processing big data in TSG serving 50M+ MAU.
+            </p>
+          </div>
+        </a>
+      </div>
     </div>
   </body>
 </html>
