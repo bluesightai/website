@@ -1,0 +1,39 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - master
+      - main
+
+jobs:
+
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Copy files to server
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          source: "*,!.git,!.github"
+          target: "/tmp/bluesight-deploy"
+      - name: Pull image and run it
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          command_timeout: "60m"
+          script: |
+            set -x
+            TARGET_DIR="/usr/share/nginx/bluesight.ai/html"
+            
+            sudo rm -rf $TARGET_DIR/*
+            sudo mkdir -p $TARGET_DIR
+            sudo mv /tmp/bluesight-deploy/* $TARGET_DIR/
+            sudo rm -rf /tmp/bluesight-deploy
