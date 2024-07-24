@@ -18,7 +18,7 @@ jobs:
         with:
           token: "${{ secrets.GITHUB_TOKEN }}"
           environment: production
-          initial_status: in_progress
+          initial-status: in_progress
       - name: Copy files to server
         uses: appleboy/scp-action@v0.1.7
         with:
