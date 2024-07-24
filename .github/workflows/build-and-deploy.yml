@@ -12,6 +12,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Create GitHub Deployment
+        uses: chrnorm/deployment-action@v2
+        id: deployment
+        with:
+          token: "${{ secrets.GITHUB_TOKEN }}"
+          environment: production
+          initial_status: in_progress
       - name: Copy files to server
         uses: appleboy/scp-action@v0.1.7
         with:
@@ -21,7 +28,7 @@ jobs:
           port: ${{ secrets.PORT }}
           source: "*,!.git,!.github"
           target: "/tmp/bluesight-deploy"
-      - name: Pull image and run it
+      - name: Replace target files
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.HOST }}
@@ -37,3 +44,18 @@ jobs:
             sudo mkdir -p $TARGET_DIR
             sudo mv /tmp/bluesight-deploy/* $TARGET_DIR/
             sudo rm -rf /tmp/bluesight-deploy
+      - name: Update deployment status (success)
+        if: success()
+        uses: chrnorm/deployment-status@v2
+        with:
+          token: "${{ secrets.GITHUB_TOKEN }}"
+          deployment-id: ${{ steps.deployment.outputs.deployment_id }}
+          state: "success"
+          environment-url: https://bluesight.ai/
+      - name: Update deployment status (failure)
+        if: failure()
+        uses: chrnorm/deployment-status@v2
+        with:
+          token: "${{ secrets.GITHUB_TOKEN }}"
+          deployment-id: ${{ steps.deployment.outputs.deployment_id }}
+          state: "failure"
