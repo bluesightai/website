@@ -49,11 +49,14 @@
       }
       .links {
         font-size: 18px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
       }
       .links a {
         color: #333;
         text-decoration: none;
-        margin: 0 10px;
+        margin: 5px 10px;
       }
       .separator {
         color: #999;
@@ -89,6 +92,14 @@
       .separator {
         margin: 0 10px;
       }
+      @media (max-width: 600px) {
+        .links {
+          flex-direction: column;
+        }
+        .separator {
+          display: none;
+        }
+      }
     </style>
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap"
@@ -101,18 +112,20 @@
       <div class="links">
         <a href="#about">About</a>
         <span class="separator">|</span>
-        <!-- <a href="#team">Team</a> -->
-        <a target="_blank" href="https://demo.bluesight.ai/"
-          >Explorer<span class="new-tab-icon"></span
-        ></a>
+        <a target="_blank" href="https://demo.bluesight.ai/">
+          Explorer
+          <span class="new-tab-icon"></span>
+        </a>
         <span class="separator">|</span>
-        <a target="_blank" href="https://docs.bluesight.ai"
-          >Docs<span class="new-tab-icon"></span
-        ></a>
+        <a target="_blank" href="https://docs.bluesight.ai">
+          Docs
+          <span class="new-tab-icon"></span>
+        </a>
         <span class="separator">|</span>
-        <a target="_blank" href="https://discord.gg/Vbtawze3AJ"
-          >Discord<span class="new-tab-icon"></span
-        ></a>
+        <a target="_blank" href="https://discord.gg/Vbtawze3AJ">
+          Discord
+          <span class="new-tab-icon"></span>
+        </a>
       </div>
     </div>
 
